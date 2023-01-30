@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Questions</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      /* Add dark background to the entire page */
+      body {
+        background-color: #333;
+        color: #fff;
+      }
+
+      /* Center the card on the page */
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      /* Add some padding and border to the card */
+      .card {
+        padding: 20px;
+        border: none;
+      }
+
+      /* Add some styling to the input fields */
+      input {
+        background-color: #444;
+        color: #fff;
+        border-color: #555;
+      }
+      label {
+      color: #808080;
+      }
+
+      h1 {
+      color: #808080;
+      }
+
+            p {
+      color: #808080;
+      }
+
+                    ol {
+      color: #808080;
+      }
+
+             a {
+      color: yellow;
+      }
+
+      #output {
+  color: #808080;
+}
+
+.copied {
+  background-color: #28a745;
+  color: white;
+}
+
+
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+
+</head>
+<body>
+<div class="center">
+    <div class="card" style="width: 30%;">
+        <div class="card-body">
+ <div class="btn-group" role="group" aria-label="First group">
+  <button type="button" class="btn btn-secondary">
+  <a href="index.html" class="button-link">Relections</a>
+</button>
+
+<button type="button" class="btn btn-secondary">
+  <a href="questions.html" class="button-link">Questions</a>
+</button>
+
+
+  </div>
+
+<h1>Questions</h1>
+<p>The quality of questions will determine your quality of life.</p>
+<ol>
+  <li>Why are you doing this?</li>
+  <li>What do you want to get out of this?</li>
+  <li>What does success look like for you?</li>
+  <li>How will it change your life if and when you succeed?</li>
+  <li>What will you do if you fail?</li>
+</ol>
+        </div>
+    </div>
+</div>
+<script>
+      function setDateTimeNow() {
+        var now = new Date();
+        var date = now.getFullYear() + '-' + (now.getMonth() + 1).toString().padStart(2, '0') + '-' + now.getDate().toString().padStart(2, '0');
+        var time = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+        document.getElementById("datetime").value
+        = date + 'T' + time;
+      }
+
+      function displayValues() {
+        var log_did = document.getElementById("log_did").value;
+        var age = document.getElementById("age").value;
+        var datetime = document.getElementById("datetime").value;
+<!--        outputString = "Name: " + name + "<br>Age: " + age + "<br>Date-Time: " + datetime;-->
+        outputString = "Date-Time: " + datetime +"<br> What did you do: " + log_did;
+        document.getElementById("output").innerHTML = outputString
+      }
+
+
+
+function copyToClipboard() {
+  var copyText = document.getElementById("output").innerHTML;
+  navigator.clipboard.writeText(copyText).then(function() {
+    console.log('Async: Copying to clipboard was successful!');
+    document.getElementById("copyBtn").classList.add("copied");
+  }, function(err) {
+    console.error('Async: Could not copy text: ', err);
+  });
+}
+
+
+</script>
+</body>
+</html>
