@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Reflection Log</title>
+    <title>Questions</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -43,9 +43,18 @@
         color: #808080;
       }
 
+      p {
+        color: #808080;
+      }
+
+      ol {
+        color: #808080;
+      }
+
       a {
         color: yellow;
       }
+
       #output {
         color: #808080;
       }
@@ -69,78 +78,50 @@
 
             <button type="button" class="btn btn-secondary">
               <a href="questions.html" class="button-link">Questions</a>
+            </button>
 
-              <button type="button" class="btn btn-secondary">
-                <a href="quotes.html" class="button-link">Quotes</a>
-              </button>
+            <button type="button" class="btn btn-secondary">
+              <a href="quotes.html" class="button-link">Quotes</a>
             </button>
           </div>
-          <form>
-            <h5>Reflective Log</h5>
-            <div class="form-group">
-              <label for="log_did">What did you do today?</label>
-              <input
-                type="text"
-                class="form-control"
-                id="log_did"
-                name="name"
-              />
-            </div>
-            <div class="form-group">
-              <label for="log_didnt">What didn't go well?</label>
-              <input
-                type="text"
-                class="form-control"
-                id="log_didnt"
-                name="log_didnt"
-              />
-            </div>
 
-            <div class="form-group">
-              <label for="log_better">What could go better?</label>
-              <input
-                type="text"
-                class="form-control"
-                id="log_better"
-                name="log_better"
-              />
-            </div>
+          <h5>Quotes</h5>
+          <p>The quality of questions will determine your quality of life.</p>
 
-            <div class="form-group">
-              <label for="datetime">Date-Time:</label>
-              <input
-                type="datetime-local"
-                class="form-control"
-                id="datetime"
-                name="datetime"
-              />
-              <br />
-              <button
-                type="button"
-                class="btn btn-secondary"
-                onclick="setDateTimeNow()"
-              >
-                Set Date-Time Now
-              </button>
-            </div>
-            <button
-              type="button"
-              class="btn btn-primary"
-              onclick="displayValues()"
-            >
-              Submit
-            </button>
-          </form>
-          <br />
-          <div id="output"></div>
-          <br />
-          <button
-            id="copyBtn"
-            class="btn btn-secondary"
-            onclick="copyToClipboard()"
-          >
-            Copy
-          </button>
+          <ul>
+            <li>
+              "The true test of intelligence is not how much we know how to do,
+              but how we behave when we don't know what to do." - John Holt
+            </li>
+            <li>
+              "Curiosity is the wick in the candle of learning." - William
+              Arthur Ward
+            </li>
+            <li>
+              "The more that you read, the more things you will know. The more
+              that you learn, the more places you'll go." - Dr. Seuss
+            </li>
+            <li>
+              "Logic will get you from A to B. Imagination will take you
+              everywhere." - Albert Einstein
+            </li>
+            <li>
+              "Success is not final, failure is not fatal: it is the courage to
+              continue that counts." - Winston Churchill
+            </li>
+            <li>
+              "The only limit to our realization of tomorrow will be our doubts
+              of today." - Franklin D. Roosevelt
+            </li>
+            <li>
+              "In the end, we will remember not the words of our enemies, but
+              the silence of our friends." - Martin Luther King Jr.
+            </li>
+            <li>
+              "Life is 10% what happens to us and 90% how we react to it." -
+              Charles R. Swindoll
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -162,25 +143,16 @@
 
       function displayValues() {
         var log_did = document.getElementById("log_did").value;
-        var log_didnt = document.getElementById("log_didnt").value;
-        var log_better = document.getElementById("log_better").value;
+        var age = document.getElementById("age").value;
         var datetime = document.getElementById("datetime").value;
-
+        <!--        outputString = "Name: " + name + "<br>Age: " + age + "<br>Date-Time: " + datetime;-->
         outputString =
-          "Date-Time: " +
-          datetime +
-          "<br>What did you do: " +
-          log_did +
-          "<br>What didn't go well: " +
-          log_didnt +
-          "<br>What could go better: " +
-          log_better;
+          "Date-Time: " + datetime + "<br> What did you do: " + log_did;
         document.getElementById("output").innerHTML = outputString;
       }
 
       function copyToClipboard() {
         var copyText = document.getElementById("output").innerHTML;
-        copyText = copyText.replace(/<br\s*\/?>/gi, "\n");
         navigator.clipboard.writeText(copyText).then(
           function () {
             console.log("Async: Copying to clipboard was successful!");
@@ -191,17 +163,6 @@
           }
         );
       }
-
-      // function copyToClipboard() {
-      //     var copyText = document.getElementById("output").innerHTML.replace(/<br>/g,'');
-      //     var textArea = document.createElement("textarea");
-      //     textArea.value = copyText;
-      //     document.body.appendChild(textArea);
-      //     textArea.select();
-      //     document.execCommand("Copy");
-      //     textArea.remove();
-      //     document.getElementById("copyBtn").classList.add("copied");
-      //   }
     </script>
   </body>
 </html>
